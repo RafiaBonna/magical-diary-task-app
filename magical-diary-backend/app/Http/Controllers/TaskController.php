@@ -41,7 +41,7 @@ class TaskController extends Controller
         return response()->json($task, 200);
     }
 
-    // ৪. ডায়েরির কোনো উইশ To destory any wish of diary
+    // ৪. ডায়েরির কোনো উই To destory any wish of diary
     public function destroy($id)
     {
         $task = Task::findOrFail($id);
