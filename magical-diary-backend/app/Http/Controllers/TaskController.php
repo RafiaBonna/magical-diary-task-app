@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    // ১. ডাটাবেস থেকে সব টাস্ক টেনে এনে রিয়্যাক্টকে দেওয়া
+    // 1. Retrieve all tasks from the database and return them to React
     public function index()
     {
         return response()->json(Task::latest()->get(), 200);
     }
 
-    // ২. নতুন কোনো উইশ বা টাস্ক ডাটাবেসে সেভ করা
+    // 2. Store a new task in the database
     public function store(Request $request)
     {
         $request->validate([
@@ -28,12 +28,12 @@ class TaskController extends Controller
         return response()->json($task, 201);
     }
 
-    // ৩. টাস্ক কমপ্লিট (দাগ কাটা) বা আন-কমপ্লিট করার স্ট্যাটাস আপডেট করা
+    // 3. Toggle the task completion status (complete/incomplete)
     public function update(Request $request, $id)
     {
         $task = Task::findOrFail($id);
 
-        // বর্তমান স্ট্যাটাস যা আছে তার উল্টোটা করে দেবে (true থাকলে false, false থাকলে true)
+        // Reverse the current completion status (true → false, false → true)
         $task->update([
             'completed' => !$task->completed
         ]);
@@ -41,7 +41,7 @@ class TaskController extends Controller
         return response()->json($task, 200);
     }
 
-    // ৪. ডায়েরির To destory any wish of diary
+    // 4. Permanently delete a task from the database
     public function destroy($id)
     {
         $task = Task::findOrFail($id);
