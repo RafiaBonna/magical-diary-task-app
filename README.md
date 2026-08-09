@@ -2,8 +2,11 @@
 
 An enchanting, fairy-tale-themed task management web application powered by a Laravel backend. Designed as an interactive royal diary, this app transforms everyday to-dos into a magical experience featuring 3D page-flip animations, dynamic butterfly flights, particle sparkle effects, and immersive audio cues.
 
-## 🚀 Live Demo
-[✨ Open the Magical Diary ✨](https://rafiabonna.github.io/magical-diary-task-app/)
+---
+
+## 🌐 Live Preview & Demo
+Experience the royal magic live in your browser:
+👉 **[✨ Open the Magical Diary (Live Demo) ✨](https://rafiabonna.github.io/magical-diary-task-app/)**
 
 ---
 
@@ -18,8 +21,8 @@ An enchanting, fairy-tale-themed task management web application powered by a La
 ---
 
 ## 🎨 Tech Stack
-* **Backend:** Laravel, PHP, MySQL / Database migrations
-* **Frontend:** HTML5, CSS3 (3D Transforms, Custom Keyframes), JavaScript (ES6+, Audio API, Canvas Particles)
+* **Backend:** Laravel (PHP), MySQL / Database Migrations
+* **Frontend:** React.js, HTML5, Pure CSS3 (3D Transforms, Custom Keyframes), JavaScript (ES6+, Audio API, Canvas Particles)
 
 ---
 
@@ -31,7 +34,11 @@ magical-diary-task-app/
 │   ├── database/
 │   ├── routes/
 │   └── ...
-├── index.html               # The Royal Diary UI (Frontend)
-├── style.css                # Immersive Styling & 3D Animations
-├── script.js                # Magic Logic, Particles & Audio Handler
-└── README.md                # The Scroll of Knowledge
+├── magical-diary-frontend/  # React Frontend Source Files
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── ...
+│   └── ...
+├── index.html               # Main Entry Point
+├── README.md                # The Scroll of Knowledge
