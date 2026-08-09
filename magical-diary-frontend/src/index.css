@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Quicksand:wght@500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle, #e1f5fe 0%, #f3e5f5 60%, #e8eaf6 100%);
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+/* 3D Viewport & Fixed Container Dimensions */
+.diary-viewport {
+  perspective: 2000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 850px;
+}
+
+.book {
+  width: 800px;
+  height: 550px;
+  position: relative;
+  transform-style: preserve-3d;
+  border-radius: 18px;
+  box-shadow: 0 25px 50px rgba(186, 104, 200, 0.3);
+}
+
+/* 🌸 COVER DESIGN (Slow & Smooth Transition) */
+.book-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;
+  height: 550px;
+  background: linear-gradient(135deg, #f8bbd0 0%, #ce93d8 50%, #e1bee7 100%);
+  border-radius: 18px;
+  border: 8px solid #ffe082;
+  border-left: 28px solid #ba68c8;
+  box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.8), 0 20px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transform-origin: left;
+
+  /* Increased from 0.9s to 2.2s with a smooth ease-in-out curve added */
+  transition: transform 2.2s cubic-bezier(0.25, 1, 0.5, 1);
+  
+  z-index: 10;
+  color: #4a148c;
+  text-align: center;
+  padding: 30px;
+}
+
+.book-cover.open {
+  transform: rotateY(-180deg);
+  z-index: 0;
+  pointer-events: none; /* Allows interaction with the inner form when open */
+}
+
+/* Close Diary Button Style */
+.close-btn {
+  background: transparent;
+  border: 1px solid #f48fb1;
+  color: #ce93d8;
+  padding: 4px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: #f8bbd0;
+  color: #ffffff;
+}
+
+.crown-icon {
+  font-size: 60px;
+  margin-bottom: 15px;
+  animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.cover-title {
+  font-family: 'Charm', cursive;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #4a148c;
+  white-space: nowrap;
+}
+
+.cover-subtitle {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #6a1b9a;
+  font-style: italic;
+}
+
+/* INSIDE PAGE DESIGN */
+.diary-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;
+  height: 550px;
+  background: #fffdf9;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(248, 187, 208, 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(206, 147, 216, 0.3) 0%, transparent 40%),
+    linear-gradient(rgba(186, 104, 200, 0.15) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 38px;
+  border-radius: 18px;
+  border-left: 28px solid #ba68c8;
+  border-right: 4px solid #ffe082;
+  box-shadow: inset 20px 0 30px rgba(186, 104, 200, 0.15);
+  padding: 35px 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px dashed #f48fb1;
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+}
+
+.magical-title {
+  font-family: 'Charm', cursive;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #6a1b9a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Form Layout */
+.wish-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  position: relative;
+  flex: 1;
+}
+
+.wish-input {
+  width: 100%;
+  padding: 12px 15px 12px 40px;
+  border-radius: 12px;
+  border: 2px solid #f8bbd0;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #4a148c;
+}
+
+.wish-input:focus {
+  border-color: #ba68c8;
+}
+
+.quill-icon {
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  color: #f48fb1;
+}
+
+.inscribe-btn {
+  background: linear-gradient(135deg, #f48fb1, #ce93d8);
+  color: white;
+  font-weight: bold;
+  padding: 0 25px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.inscribe-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(206, 147, 216, 0.4);
+}
+
+/* Task Items */
+.task-list {
+  max-height: 280px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 5px;
+}
+
+.task-item {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 2px solid #f8bbd0;
+  padding: 10px 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.handwritten-text {
+  font-family: 'Charm', cursive;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #4a148c;
+  cursor: pointer;
+}
+
+.completed-text {
+  text-decoration: line-through #ab47bc 3px;
+  color: #ab47bc;
+  opacity: 0.6;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #f48fb1;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.2s;
+}
+
+.delete-btn:hover {
+  color: #e91e63;
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #ba68c8;
+  border-top: 1px solid #f8bbd0;
+  padding-top: 10px;
+}

@@ -2,7 +2,14 @@
 
 An enchanting, fairy-tale-themed task management web application powered by a Laravel backend. Designed as an interactive royal diary, this app transforms everyday to-dos into a magical experience featuring 3D page-flip animations, dynamic butterfly flights, particle sparkle effects, and immersive audio cues.
 
-✨ **[Live Demo](#)** *(https://github.com/RafiaBonna/magical-diary-task-app)*
+✨ **[Live Demo](https://rafiabonna.github.io/magical-diary-task-app/)** 
+
+---
+
+## 🚀 Live Preview & Demo
+
+- 🌐 **Live Website:** [https://rafiabonna.github.io/magical-diary-task-app/](https://rafiabonna.github.io/magical-diary-task-app/)
+- 📁 **GitHub Repository:** [https://github.com/RafiaBonna/magical-diary-task-app](https://github.com/RafiaBonna/magical-diary-task-app)
 
 ---
 
