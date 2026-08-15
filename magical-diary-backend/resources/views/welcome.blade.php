@@ -273,6 +273,6 @@
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif
-        12345
+        123456
     </body>
 </html>
